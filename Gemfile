@@ -6,7 +6,6 @@ gem 'github-pages'
 
 group :development, :test do
   gem 'capybara'
-  gem 'chromedriver-helper'
   gem 'html-proofer'
   gem 'pry'
   gem 'puma'
@@ -16,4 +15,5 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'selenium-webdriver'
+  gem 'webdrivers'
 end

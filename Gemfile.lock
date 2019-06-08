@@ -8,8 +8,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    archive-zip (0.12.0)
-      io-like (~> 0.3.0)
     ast (2.4.0)
     capybara (3.22.0)
       addressable
@@ -21,9 +19,6 @@ GEM
       xpath (~> 3.2)
     childprocess (1.0.1)
       rake (< 13.0)
-    chromedriver-helper (2.1.1)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     coderay (1.1.2)
     coffee-script (2.4.1)
       coffee-script-source
@@ -115,7 +110,6 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
-    io-like (0.3.0)
     jaro_winkler (1.5.2)
     jekyll (3.8.5)
       addressable (~> 2.4)
@@ -312,6 +306,10 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
+    webdrivers (4.0.0)
+      nokogiri (~> 1.6)
+      rubyzip (~> 1.0)
+      selenium-webdriver (~> 3.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yell (2.2.0)
@@ -321,7 +319,6 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  chromedriver-helper
   github-pages
   html-proofer
   pry
@@ -332,6 +329,7 @@ DEPENDENCIES
   rubocop
   rubocop-rspec
   selenium-webdriver
+  webdrivers
 
 BUNDLED WITH
    2.0.1
