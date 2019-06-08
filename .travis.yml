@@ -5,6 +5,7 @@ addons:
   apt:
     packages:
       - libcurl4-openssl-dev
+script: xvfb-run bundle exec rake
 notifications:
   webhooks: https://www.travisbuddy.com/
   on_success: never
