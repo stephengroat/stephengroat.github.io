@@ -4,6 +4,8 @@ require 'html-proofer'
 require 'jekyll'
 require 'rubocop/rake_task'
 require 'rspec/core/rake_task'
+require 'webdrivers'
+load 'webdrivers/Rakefile'
 
 task default: %w[proof spec rubocop alpha]
 
