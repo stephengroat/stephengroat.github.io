@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'bundler'
 gem 'github-pages'
 
 group :development, :test do
