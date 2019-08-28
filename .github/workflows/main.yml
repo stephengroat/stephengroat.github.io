@@ -9,7 +9,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
+    - name: Install RVM
+      run: \curl -sSL https://get.rvm.io | bash -s stable
+    - name: Install Ruby version using RVM
       run: rvm use $(< .ruby-version) --install --binary --fuzzy
     - name: Run a multi-line script
       run: |
