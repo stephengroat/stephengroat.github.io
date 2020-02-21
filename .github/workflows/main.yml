@@ -9,19 +9,17 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Install RVM GPG key
-      run: gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-    - name: Install ruby-install
+    - name: Set up RVM
       run: |
-        pushd /tmp
-        wget -O ruby-install-0.7.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz
-        tar -xzvf ruby-install-0.7.0.tar.gz
-        cd ruby-install-0.7.0/
-        sudo make install
-        popd
-    - name: Install Ruby version using ruby-install
-      run: ruby-install --system ruby $(< .ruby-version)
+        curl -sSL https://get.rvm.io | bash
+
+    - name: Set up Ruby from .ruby-version
+      run: |
+        source $HOME/.rvm/scripts/rvm
+        rvm install $(cat .ruby-version) --binary
+        rvm --default use $(cat .ruby-version)
     - name: Run a multi-line script
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        source $HOME/.rvm/scripts/rvm
+        gem install bundler
+        bundle install --jobs 4 --retry 3
