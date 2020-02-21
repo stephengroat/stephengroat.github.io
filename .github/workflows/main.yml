@@ -21,5 +21,4 @@ jobs:
     - name: Run a multi-line script
       run: |
         source $HOME/.rvm/scripts/rvm
-        gem install bundler
         bundle install --jobs 4 --retry 3
