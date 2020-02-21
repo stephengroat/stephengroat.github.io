@@ -18,7 +18,7 @@ jobs:
         source $HOME/.rvm/scripts/rvm
         rvm install $(cat .ruby-version) --binary
         rvm --default use $(cat .ruby-version)
-        gem install bundler
+        gem update --system
     - name: Run a multi-line script
       run: |
         source $HOME/.rvm/scripts/rvm
