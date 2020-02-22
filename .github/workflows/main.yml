@@ -23,3 +23,4 @@ jobs:
       run: |
         source $HOME/.rvm/scripts/rvm
         bundle install --jobs 4 --retry 3
+        bundle exec rake
