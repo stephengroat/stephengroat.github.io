@@ -9,6 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - uses: nanasess/setup-chromedriver@master
     - name: Set up RVM
       run: |
         curl -sSL https://get.rvm.io | bash
@@ -21,6 +22,7 @@ jobs:
         gem update --system
     - name: Run a multi-line script
       run: |
+        export DISPLAY=:99
         source $HOME/.rvm/scripts/rvm
         bundle install --jobs 4 --retry 3
-        bundle exec rake
+        xvfb bundle exec rake
