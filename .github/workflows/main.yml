@@ -22,7 +22,8 @@ jobs:
         gem update --system
     - name: Run a multi-line script
       run: |
+        sudo apt-get install xvfb
         export DISPLAY=:99
         source $HOME/.rvm/scripts/rvm
         bundle install --jobs 4 --retry 3
-        bundle exec rake
+        sudo xvfb bundle exec rake
