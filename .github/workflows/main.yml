@@ -25,4 +25,4 @@ jobs:
         export DISPLAY=:99
         source $HOME/.rvm/scripts/rvm
         bundle install --jobs 4 --retry 3
-        xvfb bundle exec rake
+        bundle exec rake
