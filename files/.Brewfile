@@ -33,6 +33,7 @@ cask 'meld'
 cask 'spectacle'
 cask 'vlc'
 cask 'windscribe'
+cask 'zoomus'
 mas 'Amphetamine', id: 937984704
 mas 'Slack', id: 803453959
 mas 'Telegram Desktop', id: 946399090
