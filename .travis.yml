@@ -12,3 +12,8 @@ script: xvfb-run bundle exec rake
 notifications:
   webhooks: https://www.travisbuddy.com/
   on_success: never
+matrix:
+  include:
+    - language: generic
+      os: osx
+      script: brew bundle --file=files/.Brewfile
