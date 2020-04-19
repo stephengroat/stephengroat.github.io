@@ -37,6 +37,7 @@ cask 'sekey'
 cask 'spectacle'
 cask 'vlc'
 cask 'windscribe'
+cask 'yubico-yubikey-manager'
 cask 'zoomus'
 mas 'Amphetamine', id: 937984704
 mas 'Slack', id: 803453959
