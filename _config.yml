@@ -63,3 +63,5 @@ exclude:
     - Rakefile
     - vendor
     - spec
+include:
+    - files/.Brewfile
