@@ -17,4 +17,4 @@ jobs:
     - name: "Test Brewfile"
       language: generic
       os: osx
-      script: brew bundle --file=files/.Brewfile
+      before_script: brew bundle --file=files/.Brewfile
