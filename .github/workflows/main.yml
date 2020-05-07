@@ -27,9 +27,6 @@ jobs:
       run: |
         tfenv install
         terraform fmt
-    - name: Set up Ruby from .ruby-version
-      run: |
-        gem update --system
     - name: Run a multi-line script
       run: |
         export DISPLAY=:99
