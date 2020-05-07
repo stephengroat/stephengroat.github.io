@@ -23,7 +23,7 @@ jobs:
         echo "::add-path::$HOME/.tfenv/bin:$PATH"
     - name: Test tfenv
       run: |
-        tfenv install 0.12.20
+        terraform fmt
     - name: Set up Ruby from .ruby-version
       run: |
         source $HOME/.rvm/scripts/rvm
