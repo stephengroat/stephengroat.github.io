@@ -28,11 +28,11 @@ jobs:
       run: |
         tfenv install
         terraform fmt
-    - name: terraform init && terraform plan
+    - name: terraform init and plan
       env:
         DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
         DATADOG_APP_KEY: ${{ secrets.DATADOG_APP_KEY }}
-      run: terraform plan
+      run: terraform init && terraform plan
     - name: Run a multi-line script
       run: |
         export DISPLAY=:99
