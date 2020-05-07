@@ -14,15 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: nanasess/setup-chromedriver@master
-    - name: Set up rbenv
+    - name: Setup env
       run: |
         echo "::add-path::$HOME/.rbenv/bin"
-        export PATH="$HOME/.rbenv/bin:$PATH"
-        curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
-    - name: Install tfenv
-      run: |
-        git clone https://github.com/tfutils/tfenv.git ~/.tfenv
         echo "::add-path::$HOME/.tfenv/bin"
+    - name: Set up rbenv
+      run: curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+    - name: Install tfenv
+      run: git clone https://github.com/tfutils/tfenv.git ~/.tfenv
     - name: Test tfenv
       run: |
         tfenv install
