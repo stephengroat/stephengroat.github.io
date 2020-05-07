@@ -14,9 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: nanasess/setup-chromedriver@master
-    - name: Set up RVM
+    - name: Set up rbenv
       run: |
-        curl -sSL https://get.rvm.io | bash
+        curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
     - name: Install tfenv
       run: |
         git clone https://github.com/tfutils/tfenv.git ~/.tfenv
@@ -27,13 +27,9 @@ jobs:
         terraform fmt
     - name: Set up Ruby from .ruby-version
       run: |
-        source $HOME/.rvm/scripts/rvm
-        rvm install $(cat .ruby-version) --binary
-        rvm --default use $(cat .ruby-version)
         gem update --system
     - name: Run a multi-line script
       run: |
         export DISPLAY=:99
-        source $HOME/.rvm/scripts/rvm
         bundle install --jobs 4 --retry 3
         xvfb-run bundle exec rake
