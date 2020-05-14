@@ -35,6 +35,6 @@ jobs:
     - name: Run a multi-line script
       run: |
         export DISPLAY=:99
-        gem install bundler
+        sudo gem install bundler
         bundle install --jobs 4 --retry 3
         xvfb-run bundle exec rake
