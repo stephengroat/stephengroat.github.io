@@ -14,19 +14,27 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: nanasess/setup-chromedriver@master
-    - name: Set up RVM
+    - name: Set up rbenv
+      run: brew install rbenv
+    - name: Setup env
       run: |
-        curl -sSL https://get.rvm.io | bash
-
-    - name: Set up Ruby from .ruby-version
+        echo "::add-path::$HOME/.rbenv/bin"
+        echo "::add-path::$HOME/.rbenv/shims"
+        echo "::add-path::$HOME/.tfenv/bin"
+    - name: Install tfenv
+      run: git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+    - name: Test tfenv
       run: |
-        source $HOME/.rvm/scripts/rvm
-        rvm install $(cat .ruby-version) --binary
-        rvm --default use $(cat .ruby-version)
-        gem update --system
+        tfenv install
+        terraform fmt
+    - name: terraform init and plan
+      env:
+        DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+        DATADOG_APP_KEY: ${{ secrets.DATADOG_APP_KEY }}
+      run: terraform init && terraform plan
     - name: Run a multi-line script
       run: |
         export DISPLAY=:99
-        source $HOME/.rvm/scripts/rvm
+        sudo gem install bundler
         bundle install --jobs 4 --retry 3
         xvfb-run bundle exec rake
