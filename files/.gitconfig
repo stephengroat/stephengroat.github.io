@@ -1,5 +1,13 @@
+[user]
+        name = Stephen Groat
+	email = stephen@egroat.com
 [credential]
 	helper = osxkeychain
-[user]
-	name = Stephen G
-	email = stephen@egroat.com
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[fetch]
+        prune = true
+[pull]
+        rebase = true
