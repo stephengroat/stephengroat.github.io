@@ -25,7 +25,6 @@ jobs:
       run: git clone https://github.com/tfutils/tfenv.git ~/.tfenv
     - name: Test tfenv
       run: |
-        tfenv install
         terraform fmt
     - name: terraform init and plan
       env:
