@@ -14,16 +14,15 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: nanasess/setup-chromedriver@master
-    - name: Set up rbenv
-      run: brew install rbenv tfenv
+    - name: Run brewfile
+      run: brew bundle
     - name: Setup env
       run: |
         echo "::add-path::$HOME/.rbenv/bin"
         echo "::add-path::$HOME/.rbenv/shims"
         echo "::add-path::$HOME/.tfenv/bin"
     - name: Test tfenv
-      run: |
-        terraform fmt
+      run: terraform fmt
     - name: terraform init and plan
       env:
         DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
