@@ -22,7 +22,9 @@ jobs:
         echo "::add-path::$HOME/.rbenv/shims"
         echo "::add-path::$HOME/.tfenv/bin"
     - name: Test tfenv
-      run: terraform fmt
+      run: |
+        tfenv install
+        terraform fmt
     - name: terraform init and plan
       env:
         DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
