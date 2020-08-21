@@ -1,6 +1,7 @@
 brew 'ack'
 brew 'awscli'
 brew 'git'
+brew 'hstr'
 brew 'htop'
 brew 'macvim'
 brew 'mas'
