@@ -15,7 +15,8 @@ jobs:
     - uses: actions/checkout@v1
     - uses: nanasess/setup-chromedriver@master
     - name: Run brewfile
-      run: brew bundle
+      # https://github.com/Homebrew/linuxbrew-core/issues/20914
+      run: sudo ln -s /usr/include/locale.h /usr/include/xlocale.h && brew bundle
     - name: Setup env
       run: |
         echo "::add-path::$HOME/.rbenv/bin"
