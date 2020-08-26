@@ -23,7 +23,8 @@ jobs:
         echo "::add-path::$HOME/.rbenv/shims"
         echo "::add-path::$HOME/.tfenv/bin"
     - name: terraform fmt
-      run: terraform fmt -diff -check
+      # TODO determine why tfenv autoinstall not working
+      run: tfenv install && terraform fmt -diff -check
     - name: Run a multi-line script
       run: |
         export DISPLAY=:99
