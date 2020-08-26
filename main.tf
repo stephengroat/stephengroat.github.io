@@ -21,3 +21,4 @@ resource "datadog_synthetics_test" "test_browser" {
     tick_every = 43200
   }
 }
+
