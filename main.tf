@@ -1,7 +1,8 @@
 provider datadog {}
 
 resource "datadog_synthetics_test" "test_browser" {
-  type = "browser"
+  type    = "api"
+  subtype = "http"
 
   name    = "www.stephengroat.com"
   message = "@stephengroat@gmail.com"
