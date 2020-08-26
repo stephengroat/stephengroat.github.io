@@ -5,7 +5,7 @@ resource "datadog_synthetics_test" "test_browser" {
 
   name    = "www.stephengroat.com"
   message = "@stephengroat@gmail.com"
-  tags    = []
+  tags    = ["tld:stephengroat.com"]
 
   status = "live"
 
