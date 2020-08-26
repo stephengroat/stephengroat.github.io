@@ -15,11 +15,13 @@ resource "datadog_synthetics_test" "test_browser" {
     url    = "http://www.stephengroat.com"
   }
   
-  assertion = {
-    type     = "statusCode"
-    operator = "is"
-    target   = "200"
-  }
+  assertions = [
+    {
+      type     = "statusCode"
+      operator = "is"
+      target   = "200"
+    },
+  ]
 
   locations = ["aws:eu-central-1", "aws:us-east-2"]
 
