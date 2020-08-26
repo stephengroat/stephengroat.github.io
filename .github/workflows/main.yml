@@ -22,15 +22,9 @@ jobs:
         echo "::add-path::$HOME/.rbenv/bin"
         echo "::add-path::$HOME/.rbenv/shims"
         echo "::add-path::$HOME/.tfenv/bin"
-    - name: Test tfenv
-      run: |
-        tfenv install
-        terraform fmt
-    - name: terraform init and plan
-      env:
-        DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
-        DATADOG_APP_KEY: ${{ secrets.DATADOG_APP_KEY }}
-      run: terraform init && terraform plan
+    - name: terraform fmt
+      # TODO determine why tfenv autoinstall not working
+      run: tfenv install && terraform fmt -diff -check
     - name: Run a multi-line script
       run: |
         export DISPLAY=:99
