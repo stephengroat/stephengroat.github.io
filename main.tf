@@ -14,7 +14,7 @@ resource "datadog_synthetics_test" "test_browser" {
     method = "HEAD"
     url    = "http://www.stephengroat.com"
   }
-  
+
   assertion {
     type     = "statusCode"
     operator = "is"
