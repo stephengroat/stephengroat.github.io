@@ -2,6 +2,7 @@ provider datadog {}
 
 variable "subdomains" {
   description = "Subdomains to check"
+  type        = set(string)
   default     = [
     "", "www"
   ]
