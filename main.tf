@@ -1,10 +1,19 @@
 provider datadog {}
 
+variable "subdomains" {
+  description = "Subdomains to check"
+  default     = [
+    "", "www"
+  ]
+}
+
 resource "datadog_synthetics_test" "test_browser" {
+  for_each = var.subdomains
+  
   type    = "api"
   subtype = "http"
 
-  name    = "www.stephengroat.com"
+  name    = "${each.value}.stephengroat.com"
   message = "@stephengroat@gmail.com"
   tags    = ["tld:stephengroat.com"]
 
@@ -12,7 +21,7 @@ resource "datadog_synthetics_test" "test_browser" {
 
   request = {
     method = "HEAD"
-    url    = "http://www.stephengroat.com"
+    url    = "http://${each.value}.stephengroat.com"
   }
 
   assertion {
