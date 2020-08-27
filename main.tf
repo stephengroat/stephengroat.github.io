@@ -3,14 +3,14 @@ provider datadog {}
 variable "subdomains" {
   description = "Subdomains to check"
   type        = set(string)
-  default     = [
+  default = [
     "", "www"
   ]
 }
 
 resource "datadog_synthetics_test" "test_browser" {
   for_each = var.subdomains
-  
+
   type    = "api"
   subtype = "http"
 
