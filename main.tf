@@ -14,7 +14,7 @@ resource "datadog_synthetics_test" "test_browser" {
   type    = "api"
   subtype = "http"
 
-  name    = "${each.value}%{ if each.value != "" }.%{ endif }stephengroat.com"
+  name    = "${each.value}%{if each.value != ""}.%{endif}stephengroat.com"
   message = "@stephengroat@gmail.com"
   tags    = ["tld:stephengroat.com"]
 
@@ -22,7 +22,7 @@ resource "datadog_synthetics_test" "test_browser" {
 
   request = {
     method = "HEAD"
-    url    = "http://${each.value}%{ if each.value != "" }.%{ endif }stephengroat.com"
+    url    = "http://${each.value}%{if each.value != ""}.%{endif}stephengroat.com"
   }
 
   assertion {
