@@ -10,6 +10,7 @@ group :development, :test do
   gem 'html-proofer'
   gem 'pry'
   gem 'puma'
+  gem "rack", ">= 2.1.4"
   gem 'rack-jekyll'
   gem 'rake'
   gem 'rspec'
