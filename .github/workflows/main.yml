@@ -26,8 +26,8 @@ jobs:
       # TODO determine why tfenv autoinstall not working
       run: tfenv install && terraform fmt -diff -check
     - name: Run a multi-line script
+      env:
+        DISPLAY: :99
       run: |
-        export DISPLAY=:99
-        sudo gem install bundler
-        bundle install --jobs 4 --retry 3
+        bundle install
         xvfb-run bundle exec rake
