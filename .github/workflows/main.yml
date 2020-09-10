@@ -29,5 +29,6 @@ jobs:
       env:
         DISPLAY: :99
       run: |
+        gem install bundler
         bundle install
         xvfb-run bundle exec rake
