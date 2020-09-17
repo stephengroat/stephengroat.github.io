@@ -15,7 +15,6 @@ jobs:
     - uses: actions/checkout@v1
     - uses: nanasess/setup-chromedriver@master
     - name: Run brewfile
-      # TODO https://github.com/Homebrew/linuxbrew-core/issues/20914
       run: brew upgrade && brew bundle
     - name: Setup env
       run: |
