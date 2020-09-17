@@ -16,7 +16,7 @@ jobs:
     - uses: nanasess/setup-chromedriver@master
     - name: Run brewfile
       # TODO https://github.com/Homebrew/linuxbrew-core/issues/20914
-      run: brew bundle
+      run: brew upgrade && brew bundle
     - name: Setup env
       run: |
         echo "::add-path::$HOME/.rbenv/bin"
