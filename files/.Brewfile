@@ -1,5 +1,6 @@
 brew 'ack'
 brew 'awscli'
+brew 'bat'
 brew 'git'
 brew 'hstr'
 brew 'htop'
