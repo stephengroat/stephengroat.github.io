@@ -13,7 +13,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - uses: nanasess/setup-chromedriver@v1.0.2
+    - uses: nanasess/setup-chromedriver@v1.0.1
     - name: Run brewfile
       run: brew upgrade && brew bundle
     - name: Setup env
