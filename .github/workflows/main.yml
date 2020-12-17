@@ -21,7 +21,6 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true 
       run: |
         echo "::add-path::$HOME/.rbenv/shims"
-        echo "::add-path::$HOME/.tfenv/bin"
     - name: terraform fmt
       run: terraform fmt -diff -check
     - name: Run a multi-line script
