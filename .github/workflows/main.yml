@@ -17,12 +17,12 @@ jobs:
     - name: Run brewfile
       run: brew upgrade && brew bundle
     - name: terraform fmt
-      run: tfenv install && terraform fmt -diff -check && echo $PATH
+      run: tfenv install && terraform fmt -diff -check
     - name: Run a multi-line script
       env:
         DISPLAY: :99
       run: |
-        eval "$(rbenv init -)"
+        rbenv init -
         gem install bundler
         bundle install
         xvfb-run bundle exec rake
