@@ -22,7 +22,7 @@ jobs:
       run: |
         echo "::add-path::$HOME/.rbenv/shims"
     - name: terraform fmt
-      run: tfenv install && terraform fmt -diff -check
+      run: tfenv install && terraform fmt -diff -check && echo $PATH
     - name: Run a multi-line script
       env:
         DISPLAY: :99
