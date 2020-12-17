@@ -16,17 +16,13 @@ jobs:
     - uses: nanasess/setup-chromedriver@v1.0.1
     - name: Run brewfile
       run: brew upgrade && brew bundle
-    - name: Setup env
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true 
-      run: |
-        echo "::add-path::$HOME/.rbenv/shims"
     - name: terraform fmt
       run: tfenv install && terraform fmt -diff -check && echo $PATH
     - name: Run a multi-line script
       env:
         DISPLAY: :99
       run: |
+        eval "$(rbenv init -)"
         gem install bundler
         bundle install
         xvfb-run bundle exec rake
