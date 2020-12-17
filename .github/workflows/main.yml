@@ -30,6 +30,6 @@ jobs:
       env:
         DISPLAY: :99
       run: |
-        sudo gem install bundler
+        gem install bundler
         bundle install
         xvfb-run bundle exec rake
