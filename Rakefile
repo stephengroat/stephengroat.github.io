@@ -25,11 +25,11 @@ task proof: 'build' do
     check_html: true, \
     internal_domains: ['www.stephengroat.com'], \
     url_ignore: [%r{/tealium.com},
-                 %r{www.linkedin.com\/in},
-                 %r{scholar.google.com\/citations\?user\=},
-                 /twitter\.com\/stephengroat/,
-                 /angel\.co/,
-                 /vt\.academia\.edu/]
+                 %r{www.linkedin.com/in},
+                 %r{scholar.google.com/citations?user=},
+                 %r{twitter.com/stephengroat},
+                 %r{angel.co},
+                 %r{vt.academia.edu}]
   ).run
 end
 
