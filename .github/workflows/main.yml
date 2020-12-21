@@ -22,7 +22,6 @@ jobs:
       env:
         DISPLAY: :99
       run: |
-        rbenv init
         rbenv install
         gem install bundler
         bundle install
