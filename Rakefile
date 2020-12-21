@@ -28,8 +28,8 @@ task proof: 'build' do
                  %r{www.linkedin.com/in},
                  %r{scholar.google.com/citations?user=},
                  %r{twitter.com/stephengroat},
-                 %r{angel.co},
-                 %r{vt.academia.edu}]
+                 /angel.co/,
+                 /vt.academia.edu/]
   ).run
 end
 
