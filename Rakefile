@@ -9,6 +9,7 @@ load 'webdrivers/Rakefile'
 
 task default: %w[proof spec rubocop alpha]
 
+desc 'jekyll build'
 task :build do
   config = Jekyll.configuration(
     'source' => './',
@@ -18,6 +19,7 @@ task :build do
   Jekyll::Commands::Build.build site, config
 end
 
+desc 'html proofer'
 task proof: 'build' do
   HTMLProofer.check_directory(
     './_site', \
@@ -33,6 +35,7 @@ task proof: 'build' do
   ).run
 end
 
+desc 'alphabetize brewfile'
 task :alpha do
   file = File.readlines('files/.Brewfile')
   raise if file != file.sort
