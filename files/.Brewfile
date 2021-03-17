@@ -41,11 +41,14 @@ cask 'nightowl'
 cask 'pock'
 cask 'rectangle'
 cask 'sekey'
+cask 'tex-live-utility'
 cask 'tunnelblick'
+cask 'visual-studio-code'
 cask 'vlc'
+cask 'vuescan'
 cask 'windscribe'
 cask 'yubico-yubikey-manager'
-cask 'zoomus'
+cask 'zoom'
 mas 'Amphetamine', id: 937984704
 mas 'Slack', id: 803453959
 mas 'Telegram Desktop', id: 946399090
