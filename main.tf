@@ -1,4 +1,4 @@
-provider datadog {}
+provider "datadog" {}
 
 variable "subdomains" {
   description = "Subdomains to check"
