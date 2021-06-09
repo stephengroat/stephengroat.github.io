@@ -26,8 +26,7 @@ task proof: 'build' do
     assume_extension: true, \
     check_html: true, \
     internal_domains: ['www.stephengroat.com'], \
-    url_ignore: [%r{/tealium.com},
-                 %r{www.linkedin.com/in},
+    url_ignore: [%r{www.linkedin.com/in},
                  %r{scholar.google.com/citations?user=},
                  %r{twitter.com/stephengroat},
                  /angel.co/,
