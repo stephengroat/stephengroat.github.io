@@ -20,8 +20,8 @@ resource "datadog_synthetics_test" "test_browser" {
 
   status = "live"
 
-  request = {
-    method = "HEAD"
+  request_definition {
+    method = "GET"
     url    = "http://${each.value}%{if each.value != ""}.%{endif}stephengroat.com"
   }
 
@@ -33,9 +33,10 @@ resource "datadog_synthetics_test" "test_browser" {
 
   locations = ["aws:eu-central-1", "aws:us-east-2"]
 
-  options = {
+  options_list {
+    tick_every = 43200
+    
     follow_redirects = true
-    tick_every       = 43200
   }
 }
 
