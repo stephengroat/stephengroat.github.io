@@ -23,7 +23,7 @@ jobs:
     - name: Run brewfile
       run: brew bundle
     - name: terraform fmt
-      run: tfenv install && terraform fmt -diff -check
+      run: terraform fmt -diff -check
     - name: Run a multi-line script
       env:
         DISPLAY: :99
