@@ -35,7 +35,7 @@ resource "datadog_synthetics_test" "test_browser" {
 
   options_list {
     tick_every = 43200
-    
+
     follow_redirects = true
   }
 }
