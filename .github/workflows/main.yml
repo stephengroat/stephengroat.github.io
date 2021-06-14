@@ -29,7 +29,7 @@ jobs:
         DISPLAY: :99
       run: |
         eval "$(rbenv init -)"
-        rbenv install
+        rbenv install --skip-existing
         gem install bundler
         bundle install
         xvfb-run bundle exec rake
