@@ -25,7 +25,7 @@ RSpec.configure do |config|
     # see https://docs.travis-ci.com/user/chrome#Sandboxing
     args << 'no-sandbox' if ENV['TRAVIS'] == 'true'
     capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: args }
+      'goog:chromeOptions': { args: args }
     )
 
     Capybara::Selenium::Driver.new app,
