@@ -24,6 +24,14 @@ jobs:
       run: brew bundle
     - name: terraform fmt
       run: tfenv install && terraform fmt -diff -check
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: javascript
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
     - name: Run a multi-line script
       env:
         DISPLAY: :99
