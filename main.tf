@@ -8,6 +8,35 @@ variable "subdomains" {
   ]
 }
 
+resource "datadog_synthetics_test" "router" {
+  type    = "api"
+  subtype = "icmp"
+  
+  name    = "router.whipple.groat.us"
+  message = "@stephengroat@gmail.com"
+  tags    = ["tld:groat.us"]
+  
+  status = "live"
+  
+  request_definition {
+    should_track_hops = true
+    host              = "router.whipple.groat.us"
+    number_of_packets = 4
+  }
+
+  assertion {
+    type     = "packetLossPercentage"
+    operator = "is"
+    target   = "0"
+  }
+
+  locations = ["aws:eu-central-1", "aws:us-east-2"]
+
+  options_list {
+    tick_every = 60
+  }
+}
+
 resource "datadog_synthetics_test" "test_browser" {
   for_each = var.subdomains
 
@@ -39,4 +68,3 @@ resource "datadog_synthetics_test" "test_browser" {
     follow_redirects = true
   }
 }
-
