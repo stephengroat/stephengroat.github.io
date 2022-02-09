@@ -11,13 +11,13 @@ variable "subdomains" {
 resource "datadog_synthetics_test" "router" {
   type    = "api"
   subtype = "icmp"
-  
+
   name    = "router.whipple.groat.us"
   message = "@stephengroat@gmail.com"
   tags    = ["tld:groat.us"]
-  
+
   status = "live"
-  
+
   request_definition {
     should_track_hops = true
     host              = "router.whipple.groat.us"
