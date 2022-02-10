@@ -8,6 +8,8 @@ variable "subdomains" {
   ]
 }
 
+data "datadog_synthetics_locations" "locations" {}
+
 resource "datadog_synthetics_test" "router" {
   type    = "api"
   subtype = "icmp"
@@ -30,7 +32,7 @@ resource "datadog_synthetics_test" "router" {
     target   = "0"
   }
 
-  locations = ["aws:eu-central-1", "aws:us-east-2"]
+  locations = [for k, v in data.datadog_synthetics.locations: v if length(regexall("aws:us-west-*", v)) > 0]
 
   options_list {
     tick_every = 60
