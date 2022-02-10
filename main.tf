@@ -32,7 +32,7 @@ resource "datadog_synthetics_test" "router" {
     target   = "0"
   }
 
-  locations = [for k, v in data.datadog_synthetics_locations.locations : v if length(regexall("aws:us-west-*", v)) > 0]
+  locations = [for i in keys(data.datadog_synthetics_locations.locations.locations) : i if length(regexall("^aws:us-west-*", i)) > 0]
 
   options_list {
     tick_every = 60
