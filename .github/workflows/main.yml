@@ -33,12 +33,11 @@ jobs:
       uses: github/codeql-action/autobuild@v1
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+    - uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run a multi-line script
       env:
         DISPLAY: :99
       run: |
-        eval "$(rbenv init -)"
-        rbenv install --skip-existing
-        gem install bundler
-        bundle install
         xvfb-run bundle exec rake
