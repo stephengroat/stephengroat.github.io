@@ -30,7 +30,7 @@ jobs:
       with:
         languages: javascript
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
+      uses: github/codeql-action/autobuild@v2
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
     - uses: ruby/setup-ruby@v1
