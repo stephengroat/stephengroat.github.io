@@ -1,108 +1,103 @@
-# stephengroat.github.io
-[![CI](https://github.com/stephengroat/stephengroat.github.io/actions/workflows/main.yml/badge.svg)](https://github.com/stephengroat/stephengroat.github.io/actions/workflows/main.yml)
+# hugo Resume
 
-This theme stared out being a fork from the [Block-log](https://github.com/anandubajith/block-log). It still keeps many similarities. Minimal-block is a minimalistic, responsive and friendly Jekyllrb theme. It has almost no javascript (except for disquss), static social share buttons, rss, paginator, clean and simple permalinks and RSS.
+Created from [Start Bootstrap - Resume](https://startbootstrap.com/template-overviews/resume/).
+This is basically a single-page website with auto-scrolling based on left-hand nav.  Dedicated project/publications pages allow more detail.  Includes a client-side search powered by fuse.js at '/search' but currently theme does not link to that anywhere.  Includes an `/admin` endpoint that can allow authorized users to use a WYSIWYG editor and commit files back to markdown, but with a Wordpress/CMS like experience.
 
+<!-- MarkdownTOC autolink="true" -->
 
-[Live Demo](http://drvy.github.io/minimal-block/)
+- [Examples](#examples)]
 
-[Download](https://github.com/drvy/minimal-block/archive/master.zip)
+- [Setup & Use](#setup--use)
+    - [Summary](#summary)
+    - [Data files](#data-files)
+    - [Projects](#projects)
+    - [Publications](#publications)
+    - [Blog / Posts](#blog--posts)
+    - [Template params](#template-params)tgggtgc
+- [CMS Editor with Netlify CMS](#cms-editor-with-netlify-cms)
+- [Credits](#credits)
+    - [Contributions](#contributions)
+    - [Start Bootstrap Resume](#start-bootstrap-resume)
 
-[Github Repository](https://github.com/drvy/minimal-block)
+<!-- /MarkdownTOC -->
 
-![minimal-block preview](https://raw.githubusercontent.com/drvy/minimal-block/master/preview.png)
+## Examples
 
-Setting up
-----------------
-To start you own blog, simply git clone the repository on github.
+![About You](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/about.png)
 
-    git clone https://github.com/drvy/minimal-block.git
+![With optional Contact QR Code](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/qrcode.png)
 
-Once cloned, edit the `_config.yml` file at the root of the repository.
+![Highlight skills with dev icons](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/skills.png)
 
-To add your own posts, add a file to the _posts directory. The file name has to follow the following structure.
+![List featured projects](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/projects.png)
 
-    year-month-day-title.md
-    2015-01-25-Hello-world.md
+![Searchable content](https://raw.githubusercontent.com/eddiewebb/hugo-resume/master/images/search.png)
 
-The post doesn't have to be writen in markdown but it's recomended. Notice that the URL of the post will contain the “Hello-world” part so the title of the file must be URL friendly.
+See [Eddie's site](https://edwardawebb.com) for a live example.
 
+## Setup & Use
 
-Things to change in `_config.yml`
-----------------
-This file contains the configuration of your blog. By default, it looks like this:
+This theme uses a combination of a custom archetype `projects` and some data files to drive content.
 
-    # General
-    name: Minimal-Block
-    description: "Minimalistic, friendly, responsive."
-    url: http://localhost:4000
+You can test the provided [exampleSite](exampleSite) after cloning with the command:
+`cd exampleSite;hugo -t hugo-resume --themesDir ../.. server`
 
-    markdown: redcarpet
-    highlighter: pygments
+### Summary
+Edit the main `contents/_index.md with a brief bio/summary`
 
-    paginate: 5
-    permalink: /:title
+### Data files
+Data files are used for simple content presented on the homepage.
 
-    # Social share and comments.
-    disqus-id: yourusername
-    twitter: yourusername
-    github: yourusername
-    google: +yourusername
-
-    # RSS feed
-    rss-feed-limit: 10
-    rss-show-full: "yes"
-
-You will need to change `name` , `url` , `twitter`, `disqus-id`, `google` and `github`. All others are optional. Here is what the variables mean.
-
-<table>
-<thead>
-    <tr><th>Name</th><th>Description</th></tr>
-</thead>
-<tbody>
-    <tr><td>name</td><td>The name of your jekyll site. The title.</td></tr>
-    <tr><td>description</td><td>Basic description. Sub-title.</td></tr>
-    <tr><td>url</td><td>Where will be the jekyll site. The main URL without the endind / (slash).</td></tr>
-    <tr><td>markdown</td><td>The preffered markdown parser to use.</td></tr>
-    <tr><td>highlighter</td><td>The syntax-highlighter to use. If not set, `highlights.css` will not be included.</td></tr>
-    <tr><td>paginate</td><td>How much posts to show per page.</td></tr>
-    <tr><td>permalink</td><td>The friendly urls of the post. `none` is the jekyll default.</td></tr>
-    <tr><td>disqus-id</td><td>The disqus ID. If not set, comments will not be shown.</td></tr>
-    <tr><td>twitter</td><td>Your twitter username (used while sharing).</td></tr>
-    <tr><td>github</td><td>Your github username.</td></tr>
-    <tr><td>google</td><td>Youre google+ username.</td></tr>
-    <tr><td>rss-feed-limit</td><td>How much entries to display in the feed.xml (rss).</td></tr>
-    <tr><td>rss-show-full</td><td>The show the full post or to put only the excerpt (yes | no).</td>
-</tbody>
-</table>
-
-For more information on Jekyll, visit their [wiki on github](https://github.com/mojombo/jekyll/wiki). For more information on GitHub Pages visit [their site](http://pages.github.com).
+- [data/skills.json](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/data/skills.json)
+- [data/experience.json](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/data/experience.json)
+- [data/education.json](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/data/education.json)
 
 
-Writing posts.
-----------------
-Checkout the Jekyllrb [wiki](https://github.com/mojombo/jekyll/wiki) for documentation on writing posts. This theme
-makes use of static sharing buttons and they use a few tags that you should include in your posts.
-An example of a post header:
+### Projects
+Initially projects were in their own JSON file too, but I decided I wanted to allow more detail and custom formatting.
+Projects are added to one of 2 subfolders of `creations` or `contributions`. The difference indicates your role as originator or colaborator.   Use `hugo add projects/TYPE/name-of-project.md` to leverage the proper archetype.
 
-    ---
-    layout: post
-    title:  "minimal-block - A minimalistic responsive Jekyll theme"
-    date:   2015-01-25 00:00:00
-    categories: jekyll, themes
-    tags: jekyll, theme, minimal
-    shortUrl: http://goo.gl/JhfZT9
-    ---
+### Publications
+Similar to projects, create them under `publications`. Include any papers, speaking engagements, articles, etc.
 
-Most of these variables are just the default ones but the last two (`tags` and `shortUrl`) are used by the theme when sharing via the social buttons in the end of every post.
+### Blog / Posts
+Similar to posts, create them under `blog`. Include any thoughts, musiings, etc.
+**This template does not support a `posts` folder**
 
-Specifically, `tags` will be converted into hashtags when sharing on Twitter and if you supply a `shortUrl`, it will be used instead of the full url. This is useful if you are using [goo.gl](http://goo.gl) since they provide statistics for each short link and that way you can see how many people are sharing your post.
+### Template params
+
+All personal information outside the above details is captured by params in [`config.toml`](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/config.toml), or can be edited in the "Settings" collection if using CMS.
+
+## CMS Editor with Netlify CMS
+**Does not require deployment to Netlify!**
+
+[Netlify CMS](https://www.netlifycms.org/) is an open source project that enables CMS like experience for static site generation tools like Hugo. This theme includes a fully working integration and guide in [exampleSite/static/admin](https://github.com/eddiewebb/hugo-resume/blob/master/exampleSite/static/admin)
+
+![CMS integration](/images/cms.png)
 
 
-Pages and other files.
-----------------
-Each page has its own directory in the root folder of the theme. In each directory there is an index.html representing the contents of the page. Take a look at the default ones (about and contact) to see the structure.
+## Credits
 
-Another file to know about is the `footer.html` as it has the copyright notice and credits. This file is located in the `_includes` folder. You can remove the credits if you want but I would love you if you give me some credit in the HTML source.
+This project ports the Start Bootstrap Resume theme by David Miller to support hugo.
 
-The `404` file is located in the root folder and it contains the exactly same structure as a page.
+### Contributions
+The following users have made notable contributions:
+- [Anthony Whitford](https://github.com/awhitford)
+- [Kaushal Modi](https://github.com/kaushalmodi)
+- [Julien Rouse](https://github.com/JulienRouse)
+
+### Start Bootstrap Resume
+
+Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+
+* https://startbootstrap.com
+* https://twitter.com/SBootstrap
+
+Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+
+* http://davidmiller.io
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
+
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+
